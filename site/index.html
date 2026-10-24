@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cell Structures</title>
 <meta name="description" content="Cells are the fundamental structural and functional units of all living organisms.">
+<script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('entrance-pending');</script>
 <style>
 @font-face{font-family:'Figtree';font-style:normal;font-weight:300;font-display:block;src:url(assets/3a8ad337223d2760.woff2) format('woff2')}@font-face{font-family:'Figtree';font-style:normal;font-weight:400;font-display:block;src:url(assets/8f98dd642986f1fa.woff2) format('woff2')}@font-face{font-family:'Figtree';font-style:normal;font-weight:700;font-display:block;src:url(assets/7ec4f08d09f91d34.woff2) format('woff2')}
 *,*::before,*::after{box-sizing:border-box}
@@ -121,6 +122,39 @@ body{font-family:'Figtree',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans
   .cell.c0 .art{transform:scale(1.42);transform-origin:47.5% 49%}
 }
 }
+.entrance-pending .brand,.entrance-pending .chip,.entrance-pending .title,
+.entrance-pending .lede,.entrance-pending .url,.entrance-pending .art,
+.entrance-pending .label{opacity:0}
+/* Editorial entrance: the panel sets context while visible specimens are
+   uncovered across the grid. Tile backgrounds and all layout stay fixed. */
+@media (prefers-reduced-motion:no-preference){
+  .panel .brand{animation:cell-soft .5s cubic-bezier(.22,1,.36,1) .04s backwards}
+  .panel .chip{animation:cell-soft .48s cubic-bezier(.22,1,.36,1) .28s backwards}
+  .panel .title{animation:cell-title .76s cubic-bezier(.16,1,.3,1) .39s backwards}
+  .panel .lede{animation:cell-soft .62s cubic-bezier(.22,1,.36,1) .7s backwards}
+  .panel .url{animation:cell-soft .5s cubic-bezier(.22,1,.36,1) 1.1s backwards}
+  .cell:nth-child(1){--entry:.47s}
+  .cell:nth-child(2){--entry:.61s}
+  .cell:nth-child(3){--entry:.75s}
+  .cell:nth-child(4){--entry:.73s}
+  .cell:nth-child(5){--entry:.87s}
+  .cell:nth-child(6){--entry:1.01s}
+  .cell:nth-child(7){--entry:.99s}
+  .cell:nth-child(8){--entry:1.13s}
+  .cell:nth-child(9){--entry:1.27s}
+  .cell .art{animation:cell-art .68s cubic-bezier(.22,1,.36,1) var(--entry) backwards}
+  .cell .label{animation:cell-label .44s cubic-bezier(.22,1,.36,1) calc(var(--entry) + .16s) backwards}
+  @keyframes cell-soft{from{opacity:0;transform:translate3d(0,7px,0)}to{opacity:1;transform:none}}
+  @keyframes cell-title{from{opacity:0;transform:translate3d(0,.18em,0);clip-path:inset(100% 0 0)}to{opacity:1;transform:none;clip-path:inset(0)}}
+  @keyframes cell-art{from{opacity:0;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0)}}
+  @keyframes cell-label{from{opacity:0;transform:translate3d(0,5px,0)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:no-preference) and (max-width:919px){
+  .cell:nth-child(n+4) .art,.cell:nth-child(n+4) .label{animation:none}
+}
+@media (prefers-reduced-motion:no-preference) and (max-width:37.5em){
+  .cell:nth-child(n+2) .art,.cell:nth-child(n+2) .label{animation:none}
+}
 </style>
 </head>
 <body>
@@ -146,5 +180,52 @@ body{font-family:'Figtree',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans
 <figure class="cell c8" data-key="tcell"><svg class="art" viewBox="1236 673 349 318" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><path d="M1388.94,905L1388.94,932.38L1373.15,953.36" fill="none" stroke="#9a9a9a" stroke-width="11" stroke-linejoin="round"/><path d="M1433.88,905L1433.88,932.38L1449.66,953.36" fill="none" stroke="#9a9a9a" stroke-width="11" stroke-linejoin="round"/><path d="M1388.94,905L1388.94,932.38L1373.75,952.56" fill="none" stroke="#d6d6d6" stroke-width="7" stroke-linejoin="round"/><path d="M1433.88,905L1433.88,932.38L1449.06,952.56" fill="none" stroke="#d6d6d6" stroke-width="7" stroke-linejoin="round"/><rect x="1376.19" y="834.81" width="25.5" height="77.91" rx="4.88" fill="#f4f4f4" stroke="#9a9a9a" stroke-width="2"/><rect x="1370.64" y="753.62" width="36.59" height="83" rx="5.19" fill="#d6d6d6" stroke="#9a9a9a" stroke-width="2"/><path d="M1371.14,749.04L1371.14,707.06Q1371.14,702.47 1375.74,702.47L1375.81,702.47C1376.06,702.47 1379.44,716.23 1388.94,716.23C1398.44,716.23 1401.81,702.47 1402.06,702.47L1402.14,702.47Q1406.73,702.47 1406.73,707.06L1406.73,749.04Q1406.73,753.63 1402.14,753.63L1375.74,753.63Q1371.14,753.63 1371.14,749.04Z" fill="#f4f4f4" stroke="#9a9a9a" stroke-width="2" stroke-linejoin="round"/><rect x="1421.12" y="834.81" width="25.5" height="77.91" rx="4.88" fill="#f4f4f4" stroke="#9a9a9a" stroke-width="2"/><rect x="1415.58" y="753.62" width="36.59" height="83" rx="5.19" fill="#d6d6d6" stroke="#9a9a9a" stroke-width="2"/><path d="M1416.08,749.04L1416.08,707.06Q1416.08,702.47 1420.67,702.47L1420.75,702.47C1421,702.47 1424.38,716.23 1433.88,716.23C1443.38,716.23 1446.75,702.47 1447,702.47L1447.08,702.47Q1451.67,702.47 1451.67,707.06L1451.67,749.04Q1451.67,753.63 1447.08,753.63L1420.67,753.63Q1416.08,753.63 1416.08,749.04Z" fill="#f4f4f4" stroke="#9a9a9a" stroke-width="2" stroke-linejoin="round"/></svg><figcaption class="label">T Cell</figcaption></figure>
   </section>
 </main>
+<script>
+(() => {
+  if (!document.documentElement.classList.contains('entrance-pending')) return;
+  const tracks = [];
+  const ease = 'cubic-bezier(.22,1,.36,1)';
+  const play = (element, frames, delay, duration) => {
+    if (!element) return;
+    const animation = element.animate(frames, {delay, duration, easing:ease, fill:'both'});
+    tracks.push(animation);
+  };
+  const rise = [{opacity:0, transform:'translateY(12px)'}, {opacity:1, transform:'translateY(0)'}];
+  play(document.querySelector('.brand'), [{opacity:0}, {opacity:1}], 0, 460);
+  play(document.querySelector('.chip'), [{opacity:0, transform:'translateY(7px)'}, {opacity:1, transform:'translateY(0)'}], 180, 480);
+  play(document.querySelector('.title'), rise, 280, 680);
+  play(document.querySelector('.lede'), rise, 590, 620);
+  play(document.querySelector('.url'), [{opacity:0}, {opacity:1}], 970, 470);
+
+  const cells = [...document.querySelectorAll('.cell')];
+  const offscreen = [];
+  cells.forEach((cell, index) => {
+    if (cell.getBoundingClientRect().top >= innerHeight) {
+      const art = cell.querySelector('.art');
+      const label = cell.querySelector('.label');
+      art.style.opacity = label.style.opacity = '1';
+      offscreen.push(art, label);
+      return;
+    }
+    const row = Math.floor(index / 3);
+    const column = index % 3;
+    const delay = 360 + row * 180 + column * 90;
+    play(cell.querySelector('.art'),
+      [{opacity:0, clipPath:'inset(0 100% 0 0)'}, {opacity:1, clipPath:'inset(0 0 0 0)'}],
+      delay, 700);
+    play(cell.querySelector('.label'), [{opacity:0}, {opacity:1}], delay + 330, 370);
+  });
+
+  const finish = () => {
+    document.documentElement.classList.remove('entrance-pending');
+    tracks.forEach(animation => animation.cancel());
+    offscreen.forEach(element => element.style.removeProperty('opacity'));
+  };
+  Promise.all(tracks.map(animation => animation.finished.catch(() => {}))).then(finish, finish);
+  setTimeout(() => {
+    if (document.documentElement.classList.contains('entrance-pending')) finish();
+  }, 2500);
+})();
+</script>
 </body>
 </html>
